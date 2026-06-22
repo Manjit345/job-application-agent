@@ -22,12 +22,11 @@ def calculate_match_score(resume_text: str, job_description: str) -> MatchScoreR
     
     Args:
         resume_text: Plain text extracted from the resume.
-        job_description: Plain text extracted from the job description.
+        job_description: Plain text extracted from the target job description.
 
     Returns:
         MatchScoreResult: A structured object containing the match score and reasoning.
     """
-
     embed_model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
     resume_embedding = embed_model.encode([resume_text])
     job_embedding = embed_model.encode([job_description])
