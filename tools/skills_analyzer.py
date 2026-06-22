@@ -9,6 +9,7 @@ from google import genai
 from pydantic import BaseModel
 from typing import List
 from prompts.templates import SKILLS_GAP_PROMPT
+from tools.utils import call_with_retry
 
 load_dotenv()
 
@@ -31,7 +32,9 @@ def analyze_skills_gap(resume_text:str, job_description:str) -> SkillsGapAnalysi
     prompt = SKILLS_GAP_PROMPT.format(resume_text=resume_text, job_description=job_description)
 
     client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
-    response = client.models.generate_content(
+    
+    response = call_with_retry(
+        client=client,
         model="gemini-3.5-flash",
         contents=prompt,
         config={

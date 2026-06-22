@@ -9,6 +9,7 @@ from pydantic import BaseModel
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 from prompts.templates import MATCH_SCORE_REASONING_PROMPT
+from tools.utils import call_with_retry
 
 load_dotenv()
 
@@ -37,7 +38,8 @@ def calculate_match_score(resume_text: str, job_description: str) -> MatchScoreR
 
     client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
 
-    response = client.models.generate_content(
+    response = call_with_retry(
+        client=client,
         model="gemini-3.5-flash",
         contents=prompt,
         config={
