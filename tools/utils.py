@@ -27,7 +27,7 @@ def call_with_retry(client, model: str, contents: str, config: dict, max_retries
     """
     for attempt in range(max_retries):
         try:
-            return client.models.generate_content(
+            return client.models.generate_content( #The parameters of this return block will change according to the model we are using (Currently Gemini 3.5 Flash)
                 model=model,
                 contents=contents,
                 config=config
@@ -35,7 +35,7 @@ def call_with_retry(client, model: str, contents: str, config: dict, max_retries
         except Exception as e:
             if "503" in str(e) or "UNAVAILABLE" in str(e):
                 if attempt < max_retries - 1:
-                    time.sleep(2 ** attempt)
+                    time.sleep(2 ** attempt) #Exponential backoff to avoid the thundering herd problem
                     continue
             raise e
     raise Exception("The model's API is unavailable after multiple retries")
