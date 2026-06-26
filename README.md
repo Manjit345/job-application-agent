@@ -5,20 +5,16 @@ I think I don't only speak for myself when I say that I come across a job descri
 
 ![Demo Video](assets/demo.gif)
 
+
 ## How It Works
 The user have to upload a resume alongside copying and pasting the text of the job description they wish to apply to. The agent calls the match_score and skills_analyzer tool to identify the skills gap and how much of the resume is already matching with the JD. After the analysis, it will require your approval to call the rewrite_resume tool for rewriting the resume without changing the factual accuracy of the original one.
 
 ## Tech Stack
-- Python 
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-- Google Gemini 3.5 Flash 
-![Google Gemini](https://img.shields.io/badge/Google%20Gemini-8E75B2?style=for-the-badge&logo=googlegemini&logoColor=white)
-- sentence-transformers (all-MiniLM-L6-v2) 
-![HuggingFace](https://img.shields.io/badge/HuggingFace-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)
-- Pydantic 
-![Pydantic](https://img.shields.io/badge/Pydantic-E92063?style=for-the-badge&logo=pydantic&logoColor=white)
-- Streamlit 
-![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
+- ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+- ![Google Gemini](https://img.shields.io/badge/Google%20Gemini-8E75B2?style=for-the-badge&logo=googlegemini&logoColor=white)
+- ![HuggingFace](https://img.shields.io/badge/HuggingFace-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)
+- ![Pydantic](https://img.shields.io/badge/Pydantic-E92063?style=for-the-badge&logo=pydantic&logoColor=white)
+- ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
 
 ## Project Structure
 ```
